@@ -6,6 +6,7 @@ class Library {
   }
 }
 
+// tester library
 const testLibrary = new Library("The Name", "Coolio")
 console.log(testLibrary)
 
@@ -14,17 +15,28 @@ class Playlist {
     this.name = name;
     this.tracks = [];
   }
-  // overallRating () => {
-  //   let sum = 0;
 
-  // }
+  overallRating() {
+    let sumRating = 0;
+      this.tracks.forEach((track) => {
+        sumRating += track.rating;
+      });
+      return sumRating;
+
+  }
+
   totalDuration() {
-    this.tracks.forEach(() => {
-      sumOfLength += track.length;
+    let sumLength = 0
+    this.tracks.forEach((track) => {
+      sumLength += track.length;
     })
-    return sumOfLength;
+    return sumLength;
   }
 }
+
+const testPlaylist = new Playlist("Best Playlist");
+console.log(testPlaylist);
+
 
 class Track {
   constructor (title, rating, length) {
@@ -33,3 +45,10 @@ class Track {
     this.length = length;
   }
 }
+
+//tester tracks
+const roygbiv = new Track("Roygbiv", 5, 2.5);
+const ritournelle = new Track("La Ritournelle", 4, 7.5)
+// console.log(roygbiv, ritournelle)
+testPlaylist.tracks.push(roygbiv, ritournelle);
+console.log(testPlaylist);
